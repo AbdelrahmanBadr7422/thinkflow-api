@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
-import { CommentService } from "./comment.service.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
+import { CommentService } from "./comment.service.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
 
 const commentService = new CommentService();
 

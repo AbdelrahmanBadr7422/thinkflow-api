@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { type CommentDocument } from "./comment.types.ts";
+import { type CommentDocument } from "./comment.types.js";
 
 const commentSchema = new Schema<CommentDocument>(
   {
@@ -25,16 +25,16 @@ const commentSchema = new Schema<CommentDocument>(
     timestamps: true,
     toJSON: {
       transform: function (_doc, ret) {
-        ret.id = ret._id;
-        delete ret._id;
-        delete ret.__v;
-        return ret;
+        const transformed = { ...ret } as any;
+        transformed.id = transformed._id?.toString();
+        delete transformed._id;
+        delete transformed.__v;
+        return transformed;
       },
     },
   }
 );
 
-// Indexes
 commentSchema.index({ authorId: 1 });
 commentSchema.index({ questionId: 1 });
 commentSchema.index({ createdAt: -1 });

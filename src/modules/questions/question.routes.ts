@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { QuestionController } from "./question.controller.ts";
-import { validate } from "../../common/middlewares/validate.middleware.ts";
-import { questionSchema, updateQuestionSchema } from "./question.schema.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
-import authMiddleware from "../../common/middlewares/auth.middleware.ts";
+import { QuestionController } from "./question.controller.js";
+import { validate } from "../../common/middlewares/validate.middleware.js";
+import { questionSchema, updateQuestionSchema } from "./question.schema.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
+import authMiddleware from "../../common/middlewares/auth.middleware.js";
 
 const router = Router();
 const controller = new QuestionController();

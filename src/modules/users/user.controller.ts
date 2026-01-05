@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
-import { UserService } from "./user.service.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
+import { UserService } from "./user.service.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
 
 const userService = new UserService();
 

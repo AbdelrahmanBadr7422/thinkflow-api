@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
-import { AuthService } from "./auth.service.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
+import { AuthService } from "./auth.service.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
 
 const authService = new AuthService();
 

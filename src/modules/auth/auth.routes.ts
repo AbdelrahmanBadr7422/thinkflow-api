@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { AuthController } from "./auth.controller.ts";
-import { validate } from "../../common/middlewares/validate.middleware.ts";
-import { registerSchema, loginSchema } from "./auth.schema.ts";
-import guestOnlyMiddleware from "../../common/middlewares/guestOnly.middleware.ts";
+import { AuthController } from "./auth.controller.js";
+import { validate } from "../../common/middlewares/validate.middleware.js";
+import { registerSchema, loginSchema } from "./auth.schema.js";
+import guestOnlyMiddleware from "../../common/middlewares/guestOnly.middleware.js";
 
 const router = Router();
 const controller = new AuthController();

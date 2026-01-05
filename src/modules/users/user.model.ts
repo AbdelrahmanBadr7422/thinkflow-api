@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 import bcrypt from "bcrypt";
-import { type UserDocument } from "./user.types.ts";
+import { type UserDocument } from "./user.types.js";
 
 const UserSchema = new Schema<UserDocument>(
   {
@@ -31,11 +31,12 @@ const UserSchema = new Schema<UserDocument>(
     timestamps: true,
     toJSON: {
       transform: function (_doc, ret) {
-        ret.id = ret._id.toString();
-        delete ret._id;
-        delete ret.__v;
-        delete ret.password;
-        return ret;
+        const transformed = { ...ret } as any;
+        transformed.id = transformed._id?.toString();
+        delete transformed._id;
+        delete transformed.__v;
+        delete transformed.password;
+        return transformed;
       },
     },
   }

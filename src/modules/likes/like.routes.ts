@@ -1,7 +1,7 @@
 import { Router } from "express";
-import { LikeController } from "./like.controller.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
-import authMiddleware from "../../common/middlewares/auth.middleware.ts";
+import { LikeController } from "./like.controller.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
+import authMiddleware from "../../common/middlewares/auth.middleware.js";
 
 const router = Router();
 const controller = new LikeController();

@@ -1,6 +1,6 @@
-import { UserModel } from "../users/user.model.ts";
-import { type UserDocument } from "../users/user.types.ts";
-import { type ILoginDTO } from "./auth.types.ts";
+import { UserModel } from "../users/user.model.js";
+import { type UserDocument } from "../users/user.types.js";
+import { type ILoginDTO } from "./auth.types.js";
 
 export class AuthDAO {
   async findByEmail(email: string): Promise<UserDocument | null> {

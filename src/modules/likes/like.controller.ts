@@ -1,6 +1,6 @@
 import { type Request, type Response } from "express";
-import { LikeService } from "./like.service.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
+import { LikeService } from "./like.service.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
 
 const likeService = new LikeService();
 

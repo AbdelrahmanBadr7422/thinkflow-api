@@ -1,9 +1,9 @@
-import { CommentModel } from "./comment.model.ts";
+import { CommentModel } from "./comment.model.js";
 import {
   type ICreateCommentDTO,
   type IUpdateCommentDTO,
   type CommentDocument,
-} from "./comment.types.ts";
+} from "./comment.types.js";
 
 export class CommentDAO {
   async create(

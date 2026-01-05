@@ -1,9 +1,9 @@
-import { QuestionModel } from "./question.model.ts";
+import { QuestionModel } from "./question.model.js";
 import {
   type ICreateQuestionDTO,
   type IUpdateQuestionDTO,
   type QuestionDocument,
-} from "./question.types.ts";
+} from "./question.types.js";
 
 export class QuestionDAO {
   async create(

@@ -1,9 +1,9 @@
 import jwt from "jsonwebtoken";
 import bcrypt from "bcrypt";
 
-import { AuthDAO } from "./auth.dao.ts";
-import { ApiError } from "../../common/errors/ApiError.ts";
-import { type IRegisterDTO, type ILoginDTO } from "./auth.types.ts";
+import { AuthDAO } from "./auth.dao.js";
+import { ApiError } from "../../common/errors/ApiError.js";
+import { type IRegisterDTO, type ILoginDTO } from "./auth.types.js";
 
 const JWT_SECRET = process.env.JWT_SECRET as string;
 

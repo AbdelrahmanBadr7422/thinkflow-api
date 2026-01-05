@@ -1,5 +1,5 @@
-import { UserModel } from "./user.model.ts";
-import { type IUpdateProfileDTO, type UserDocument } from "./user.types.ts";
+import { UserModel } from "./user.model.js";
+import { type IUpdateProfileDTO, type UserDocument } from "./user.types.js";
 
 export class UserDAO {
   async findById(userId: string): Promise<UserDocument | null> {

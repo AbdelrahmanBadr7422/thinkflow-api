@@ -1,10 +1,10 @@
-import { QuestionDAO } from "./question.dao.ts";
-import { ApiError } from "../../common/errors/ApiError.ts";
+import { QuestionDAO } from "./question.dao.js";
+import { ApiError } from "../../common/errors/ApiError.js";
 import {
   type ICreateQuestionDTO,
   type IUpdateQuestionDTO,
   type QuestionDocument,
-} from "./question.types.ts";
+} from "./question.types.js";
 
 export class QuestionService {
   private questionDAO = new QuestionDAO();

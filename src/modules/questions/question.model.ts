@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import { type QuestionDocument } from "./question.types.ts";
+import { type QuestionDocument } from "./question.types.js";
 
 const QuestionSchema = new Schema<QuestionDocument>(
   {
@@ -37,10 +37,11 @@ const QuestionSchema = new Schema<QuestionDocument>(
     toJSON: {
       virtuals: true,
       transform: function (_doc, ret) {
-        ret.id = ret._id;
-        delete ret._id;
-        delete ret.__v;
-        return ret;
+        const transformed = { ...ret } as any;
+        transformed.id = transformed._id?.toString();
+        delete transformed._id;
+        delete transformed.__v;
+        return transformed;
       },
     },
   }

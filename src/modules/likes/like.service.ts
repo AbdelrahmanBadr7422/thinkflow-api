@@ -1,7 +1,7 @@
-import { LikeDAO } from "./like.dao.ts";
-import { ApiError } from "../../common/errors/ApiError.ts";
-import { QuestionModel } from "../questions/question.model.ts";
-import { CommentModel } from "../comments/comment.model.ts";
+import { LikeDAO } from "./like.dao.js";
+import { ApiError } from "../../common/errors/ApiError.js";
+import { QuestionModel } from "../questions/question.model.js";
+import { CommentModel } from "../comments/comment.model.js";
 
 export class LikeService {
   private likeDAO = new LikeDAO();
@@ -115,7 +115,7 @@ export class LikeService {
           author: comment?.authorId,
           question: {
             id: comment?.questionId?._id,
-            title: comment?.questionId?.title,
+            title: (comment?.questionId as any).title,
           },
           likedAt: like.createdAt,
         };

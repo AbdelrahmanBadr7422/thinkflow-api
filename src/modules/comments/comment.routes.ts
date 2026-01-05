@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { CommentController } from "./comment.controller.ts";
-import { validate } from "../../common/middlewares/validate.middleware.ts";
-import { commentSchema, updateCommentSchema } from "./comment.schema.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
-import authMiddleware from "../../common/middlewares/auth.middleware.ts";
+import { CommentController } from "./comment.controller.js";
+import { validate } from "../../common/middlewares/validate.middleware.js";
+import { commentSchema, updateCommentSchema } from "./comment.schema.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
+import authMiddleware from "../../common/middlewares/auth.middleware.js";
 
 const router = Router();
 const controller = new CommentController();

@@ -1,10 +1,10 @@
 import bcrypt from "bcrypt";
-import { UserDAO } from "./user.dao.ts";
-import { ApiError } from "../../common/errors/ApiError.ts";
+import { UserDAO } from "./user.dao.js";
+import { ApiError } from "../../common/errors/ApiError.js";
 import {
   type IUpdateProfileDTO,
   type IChangePasswordDTO,
-} from "./user.types.ts";
+} from "./user.types.js";
 
 export class UserService {
   private userDAO = new UserDAO();

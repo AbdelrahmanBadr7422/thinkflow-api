@@ -44,7 +44,6 @@ const options = {
         },
       },
       schemas: {
-        // Common schemas that can be referenced in Swagger docs
         ErrorResponse: {
           type: "object",
           properties: {
@@ -128,21 +127,21 @@ const options = {
     ],
   },
   apis: [
-    path.join(__dirname, "../modules/**/*.ts"),
-    path.join(__dirname, "../common/docs/*.ts"),
+    "./src/modules/**/*.ts",
+    "./dist/modules/**/*.js",
+    "./src/modules/**/*.js",
+    "./src/modules/**/**.ts",
   ],
 };
 
 const swaggerSpec = swaggerJSDoc(options);
 
 export default function swaggerDocs(app: Express) {
-  // Serve Swagger JSON
   app.get("/swagger.json", (_req: Request, res: Response) => {
     res.setHeader("Content-Type", "application/json");
     res.send(swaggerSpec);
   });
 
-  // Serve Swagger UI
   app.use(
     "/docs",
     swaggerUi.serve,
@@ -158,7 +157,6 @@ export default function swaggerDocs(app: Express) {
     })
   );
 
-  // Simple HTML docs for alternative view
   app.get("/api-docs", (_req: Request, res: Response) => {
     const html = `
       <!DOCTYPE html>

@@ -5,16 +5,16 @@ import { randomUUID } from "crypto";
 import rateLimit from "express-rate-limit";
 import mongoose from "mongoose";
 
-import { connectDB } from "./config/database.ts";
-import { errorHandler } from "./common/errors/errorHandler.ts";
-import swaggerDocs from "./config/swagger.ts";
+import { connectDB } from "./config/database.js";
+import { errorHandler } from "./common/errors/errorHandler.js";
+import swaggerDocs from "./config/swagger.js";
 
-import authRouter from "./modules/auth/auth.routes.ts";
-import userRouter from "./modules/users/user.routes.ts";
-import questionRouter from "./modules/questions/question.routes.ts";
-import commentRouter from "./modules/comments/comment.routes.ts";
-import likeRouter from "./modules/likes/like.routes.ts";
-import authMiddleware from "./common/middlewares/auth.middleware.ts";
+import authRouter from "./modules/auth/auth.routes.js";
+import userRouter from "./modules/users/user.routes.js";
+import questionRouter from "./modules/questions/question.routes.js";
+import commentRouter from "./modules/comments/comment.routes.js";
+import likeRouter from "./modules/likes/like.routes.js";
+import authMiddleware from "./common/middlewares/auth.middleware.js";
 
 const app = express();
 

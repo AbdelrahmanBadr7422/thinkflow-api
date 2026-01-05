@@ -1,8 +1,8 @@
 import { Router } from "express";
-import { UserController } from "./user.controller.ts";
-import { validate } from "../../common/middlewares/validate.middleware.ts";
-import { updateProfileSchema, changePasswordSchema } from "./user.schema.ts";
-import { asyncHandler } from "../../common/middlewares/asyncHandler.ts";
+import { UserController } from "./user.controller.js";
+import { validate } from "../../common/middlewares/validate.middleware.js";
+import { updateProfileSchema, changePasswordSchema } from "./user.schema.js";
+import { asyncHandler } from "../../common/middlewares/asyncHandler.js";
 
 const router = Router();
 const controller = new UserController();

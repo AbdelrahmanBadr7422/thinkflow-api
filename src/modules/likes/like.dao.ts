@@ -1,4 +1,4 @@
-import { LikeModel } from "./like.model.ts";
+import { LikeModel } from "./like.model.js";
 
 export class LikeDAO {
   async createLike(data: { userId: string; itemId: string; itemType: string }) {

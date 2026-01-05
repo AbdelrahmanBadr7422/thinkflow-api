@@ -1,11 +1,11 @@
-import { CommentDAO } from "./comment.dao.ts";
-import { ApiError } from "../../common/errors/ApiError.ts";
+import { CommentDAO } from "./comment.dao.js";
+import { ApiError } from "../../common/errors/ApiError.js";
 import {
   type ICreateCommentDTO,
   type IUpdateCommentDTO,
   type CommentDocument,
-} from "./comment.types.ts";
-import { QuestionModel } from "../questions/question.model.ts";
+} from "./comment.types.js";
+import { QuestionModel } from "../questions/question.model.js";
 
 export class CommentService {
   private commentDAO = new CommentDAO();
