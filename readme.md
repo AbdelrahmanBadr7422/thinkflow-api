@@ -79,7 +79,7 @@ Perfect for **portfolio projects**, technical interviews, and showcasing backend
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/thinkflow-backend.git
+git clone https://github.com/AbdelrahmanBadr7422/thinkflow-api
 cd thinkflow-backend
 npm install
 ```
@@ -213,12 +213,6 @@ curl -X POST http://localhost:3000/api/v1/questions   -H "Authorization: Bearer 
 - Build: `npm run build`
 - Output: `dist`
 - Install: `npm ci`
-
-### Docker
-
-```bash
-docker-compose up --build
-```
 
 ---
 
