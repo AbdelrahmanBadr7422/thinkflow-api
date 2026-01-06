@@ -9,17 +9,15 @@ const server = app.listen(PORT, () => {
   const baseUrl = `http://localhost:${PORT}`;
 
   logger.info(`
-🚀 Server is running!
+Server is running!
 ├─ Environment: ${process.env.NODE_ENV || "development"}
 ├─ Port: ${PORT}
 ├─ Local URL: ${baseUrl}
 └─ Started: ${new Date().toISOString()}
 
-📚 Documentation:
+Documentation:
 ├─ Swagger UI: ${baseUrl}/docs
 ├─ HTML Docs: ${baseUrl}/api-docs
 └─ Health Check: ${baseUrl}/health
   `);
 });
-
-export default server;
