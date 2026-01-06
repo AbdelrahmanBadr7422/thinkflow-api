@@ -127,9 +127,11 @@ const options = {
     ],
   },
   apis: [
+    "./src/modules/**/*.ts",
     "./dist/modules/**/*.js",
-    "../modules/**/*.ts",
-
+    "./src/modules/**/*.js",
+    "./src/modules/**/**.ts",
+    "./dist/modules/**/*.js",
   ],
 };
 
