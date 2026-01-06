@@ -126,12 +126,7 @@ const options = {
       },
     ],
   },
-  apis: [
-    "../modules/**/*.ts",
-    "../modules/**/*.js",
-    "../modules/**/*.js",
-    "../modules/**/**.ts",
-  ],
+  apis: ["./dist/modules/**/*.js"],
 };
 
 const swaggerSpec = swaggerJSDoc(options);

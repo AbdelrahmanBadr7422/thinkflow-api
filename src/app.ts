@@ -80,11 +80,7 @@ app.use("/api/v1/likes", likeRouter);
 app.use("/api/v1/users", authMiddleware, userRouter);
 
 app.get("/", (_req, res) => {
-  res.json({
-    message: "ThinkFlow API",
-    version: "1.0.0",
-    documentation: "/api-docs",
-  });
+  res.redirect("/api-docs");
 });
 
 app.use((_req, res) => {
