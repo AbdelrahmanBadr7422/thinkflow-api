@@ -127,10 +127,10 @@ const options = {
     ],
   },
   apis: [
-    "./src/modules/**/*.ts",
-    "./dist/modules/**/*.js",
-    "./src/modules/**/*.js",
-    "./src/modules/**/**.ts",
+    "../modules/**/*.ts",
+    "../modules/**/*.js",
+    "../modules/**/*.js",
+    "../modules/**/**.ts",
   ],
 };
 
