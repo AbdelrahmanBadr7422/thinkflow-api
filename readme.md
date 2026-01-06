@@ -1,4 +1,4 @@
-# ThinkFlow Backend API 🚀
+# ThinkFlow Backend API
 
 A **production-ready RESTful API** for a Q&A platform built with **Node.js, Express, TypeScript, and MongoDB**.  
 Perfect for **portfolio projects**, technical interviews, and showcasing backend engineering skills.
@@ -10,13 +10,12 @@ Perfect for **portfolio projects**, technical interviews, and showcasing backend
 [![JWT](https://img.shields.io/badge/JWT-Auth-orange)](https://jwt.io/)
 ---
 
-## 🔗 Live Demo
+**Part of ThinkFlow Full-Stack Application**
 
-**Backend API:** https://thinkflow-api.vercel.app  
-<!-- **Frontend:** https://thinkflow-app.vercel.app   -->
-**API Documentation:** https://thinkflow-api.vercel.app/api-docs  
-**Health Check:** https://thinkflow-api.vercel.app/health  
-
+## 🔗 Live URLs
+- **Backend API:** https://thinkflow-api.onrender.com
+- **Frontend App:** https://thinkflow-app.onrender.com (Coming Soon)
+- **API Docs:** https://thinkflow-api.onrender.com/docs
 ---
 
 ## 📋 Table of Contents
@@ -199,20 +198,29 @@ curl -X POST http://localhost:3000/api/v1/auth/login   -H "Content-Type: applica
 
 Create Question:
 ```bash
-curl -X POST http://localhost:3000/api/v1/questions   -H "Authorization: Bearer YOUR_TOKEN"   -H "Content-Type: application/json"   -d '{"title":"Deploy on Vercel","body":"How to deploy Express on Vercel?"}'
+curl -X POST http://localhost:3000/api/v1/questions   -H "Authorization: Bearer YOUR_TOKEN"   -H "Content-Type: application/json"   -d '{"title":"Deploy on Render","body":"How to deploy Express on Render?"}'
 ```
 
 ---
 
-## ☁️ Deployment
+## ☁️ Deployment on Render
 
-### Vercel
+### Steps
 
-- Import GitHub repo
-- Set env variables
-- Build: `npm run build`
-- Output: `dist`
-- Install: `npm ci`
+1. Go to [Render](https://render.com) → **New** → **Web Service** → Connect your GitHub repo.
+2. Set environment variables in Render:
+    NODE_ENV=production
+    PORT=10000
+    CLIENT_URL=https://thinkflow-app.onrender.com
+
+MONGO_URI=your_mongo_connection_string
+JWT_SECRET=your_super_secret_key_here
+3. Set commands in Render:
+    Install: npm ci
+    Build: npm run build
+    Start: npm run start
+4. Render will deploy your backend.  
+Access your API at: `https://thinkflow-app.onrender.com`
 
 ---
 
@@ -230,8 +238,6 @@ Dev & Ops:
 - Joi
 - Helmet
 - Rate Limit
-- ESLint + Prettier
-- Vercel / Docker
 
 ---
 
@@ -259,7 +265,7 @@ Dev & Ops:
 - Environment configuration management
 - Error handling and logging strategies
 - API documentation with Swagger
-- Deployment to cloud platforms (Vercel)
+- Deployment to cloud platforms (Render)
 
 ### 🛠️ **Tools & Technologies**
 - TypeScript for type-safe development
