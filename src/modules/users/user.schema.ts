@@ -9,7 +9,7 @@ export const updateProfileSchema = Joi.object({
   email: Joi.string().email().optional().messages({
     "string.email": "Please provide a valid email address",
   }),
-}).or("username", "email"); // At least one of username or email is required
+}).or("username", "email");
 
 export const changePasswordSchema = Joi.object({
   oldPassword: Joi.string().required().messages({

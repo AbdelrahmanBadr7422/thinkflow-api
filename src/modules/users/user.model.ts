@@ -24,7 +24,7 @@ const UserSchema = new Schema<UserDocument>(
       type: String,
       required: [true, "Password is required"],
       minlength: [8, "Password must be at least 8 characters"],
-      select: false, // Don't include password by default in queries
+      select: false,
     },
   },
   {
@@ -42,7 +42,6 @@ const UserSchema = new Schema<UserDocument>(
   }
 );
 
-// Hash password before saving (NO NEXT PARAMETER)
 UserSchema.pre("save", async function () {
   if (this.isModified("password")) {
     try {
@@ -54,14 +53,12 @@ UserSchema.pre("save", async function () {
   }
 });
 
-// Method to compare password
 UserSchema.methods.comparePassword = async function (
   candidatePassword: string
 ): Promise<boolean> {
   return bcrypt.compare(candidatePassword, this.password);
 };
 
-// Indexes for faster queries
 UserSchema.index({ username: 1 });
 UserSchema.index({ email: 1 });
 

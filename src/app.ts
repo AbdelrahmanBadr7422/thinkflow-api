@@ -20,12 +20,14 @@ const app = express();
 
 connectDB().then(() => console.log("Database connected"));
 
+const frontendURL = process.env.FRONTEND_URL;
 app.use(
   cors({
-    origin:
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:4200"
-        : process.env.FRONTEND_URL,
+    origin: [
+      process.env.FRONTEND_URL || "http://localhost:4200",
+      "https://thinkflow-api.vercel.app/",
+      "http://localhost:3000",
+    ],
     credentials: true,
   })
 );
@@ -34,14 +36,12 @@ app.use(express.json({ limit: "20mb" }));
 app.use(express.urlencoded({ extended: true, limit: "20mb" }));
 app.use(cookieParser());
 
-// Request ID middleware
 app.use((req, _res, next) => {
   req.requestId = randomUUID();
   console.log(`[${req.requestId}] ${req.method} ${req.originalUrl}`);
   next();
 });
 
-// API headers
 app.use((_req, res, next) => {
   res.setHeader("X-API-Version", "1.0.0");
   res.setHeader("X-Service-Name", "ThinkFlow API");
@@ -50,7 +50,6 @@ app.use((_req, res, next) => {
 
 swaggerDocs(app);
 
-// Health check endpoint (improved)
 app.get("/health", async (_req, res) => {
   const healthCheck = {
     status: "ok",
@@ -64,7 +63,6 @@ app.get("/health", async (_req, res) => {
   res.json(healthCheck);
 });
 
-// Rate limiting for auth endpoints
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 100,
