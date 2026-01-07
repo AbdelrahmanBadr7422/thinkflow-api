@@ -25,7 +25,6 @@ app.use(
   cors({
     origin: [
       process.env.FRONTEND_URL || "http://localhost:4200",
-      "https://thinkflow-api.vercel.app/",
       "http://localhost:3000",
     ],
     credentials: true,
