@@ -1,3 +1,6 @@
+import path from "path";
+import { fileURLToPath } from "url";
+
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -8,7 +11,6 @@ import mongoose from "mongoose";
 import { connectDB } from "./config/database.js";
 import { errorHandler } from "./common/errors/errorHandler.js";
 import swaggerDocs from "./config/swagger.js";
-
 import authRouter from "./modules/auth/auth.routes.js";
 import userRouter from "./modules/users/user.routes.js";
 import questionRouter from "./modules/questions/question.routes.js";
@@ -18,13 +20,17 @@ import authMiddleware from "./common/middlewares/auth.middleware.js";
 
 const app = express();
 
-connectDB();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+connectDB().then(() => console.log("Database connected"));
 
 const frontendURL = process.env.FRONTEND_URL;
 app.use(
   cors({
     origin: [
       process.env.FRONTEND_URL || "http://localhost:4200",
+      "https://thinkflow-api.vercel.app/",
       "http://localhost:3000",
     ],
     credentials: true,
@@ -77,7 +83,7 @@ app.use("/api/v1/likes", likeRouter);
 app.use("/api/v1/users", authMiddleware, userRouter);
 
 app.get("/", (_req, res) => {
-  res.redirect("/api-docs");
+  res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 
 app.use((_req, res) => {
