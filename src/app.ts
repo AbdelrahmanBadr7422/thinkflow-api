@@ -18,7 +18,7 @@ import authMiddleware from "./common/middlewares/auth.middleware.js";
 
 const app = express();
 
-connectDB().then(() => console.log("Database connected"));
+connectDB();
 
 const frontendURL = process.env.FRONTEND_URL;
 app.use(
